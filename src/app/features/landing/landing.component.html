@@ -1,0 +1,33 @@
+<section class="hero-section">
+    <div class="container">
+        <div class="trusted-badge">
+            <span>⭐</span> Trusted by 500+ Organizations
+        </div>
+
+        <h1 class="hero-title">
+            Creating <span class="text-gradient-yellow">Unforgettable</span> Event Experiences
+        </h1>
+
+        <p class="hero-subtitle">
+            From intimate corporate meetings to grand international conferences — we handle every detail so you can
+            focus on what matters most.
+        </p>
+
+        <div class="hero-actions">
+            <button class="btn-primary" routerLink="/create-event">Plan Your Event <span>→</span></button>
+            <button class="btn-outline">View Our Work</button>
+        </div>
+
+        <div class="stats-grid">
+            <div class="stat-item" *ngFor="let stat of stats">
+                <h3>{{ stat.value }}</h3>
+                <p>{{ stat.label }}</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<app-services id="services"></app-services>
+<app-event-types id="event-types"></app-event-types>
+<app-why-us id="why-us"></app-why-us>
+<app-contact id="contact"></app-contact>

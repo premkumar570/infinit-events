@@ -1,0 +1,39 @@
+<form [formGroup]="form" (ngSubmit)="onSubmit()" class="form-container">
+
+    <div class="form-row">
+        <div class="form-group">
+            <label for="budget">Event Budget Estimate</label>
+            <input type="number" id="budget" formControlName="budgetEstimate" placeholder="0">
+        </div>
+
+        <div class="form-group">
+            <label for="terms">Payment Terms</label>
+            <input type="text" id="terms" formControlName="paymentTerms" placeholder="e.g. 50% advance, 50% post-event">
+        </div>
+    </div>
+
+    <div class="grid-checks">
+        <label class="check-item">
+            <input type="checkbox" formControlName="vendorManagement">
+            <span class="check-label">Vendor Management</span>
+        </label>
+        <label class="check-item">
+            <input type="checkbox" formControlName="invoiceHandling">
+            <span class="check-label">Invoice Handling</span>
+        </label>
+        <label class="check-item">
+            <input type="checkbox" formControlName="expenseTracking">
+            <span class="check-label">Expense Tracking</span>
+        </label>
+        <label class="check-item">
+            <input type="checkbox" formControlName="auditReadyReports">
+            <span class="check-label">Audit-ready Financial Reports</span>
+        </label>
+    </div>
+
+    <div class="form-actions">
+        <button type="button" class="btn-secondary" (click)="prev.emit()">Back</button>
+        <button type="submit" class="btn-primary">Save & Continue</button>
+    </div>
+
+</form>

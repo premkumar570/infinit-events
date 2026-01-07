@@ -1,0 +1,76 @@
+<form [formGroup]="form" (ngSubmit)="onSubmit()" class="form-container">
+
+    <div class="form-row">
+        <div class="form-group">
+            <label for="stalls">Number of Stalls Required</label>
+            <input type="number" id="stalls" formControlName="stallsRequired">
+        </div>
+
+        <div class="form-group">
+            <label for="stallSize">Stall Size</label>
+            <div class="select-wrapper">
+                <select id="stallSize" formControlName="stallSize">
+                    <option value="3x3m">3×3m</option>
+                    <option value="Custom">Custom</option>
+                </select>
+            </div>
+        </div>
+    </div>
+
+    <div class="form-row">
+        <div class="form-group">
+            <label class="check-item">
+                <input type="checkbox" formControlName="stallFabrication">
+                <span class="check-label">Stall Fabrication & Branding</span>
+            </label>
+        </div>
+        <div class="form-group">
+            <label class="check-item">
+                <input type="checkbox" formControlName="exhibitionLayout">
+                <span class="check-label">Layout of Exhibition Area</span>
+            </label>
+        </div>
+    </div>
+
+    <div class="section-title">Sponsor Packages Needed</div>
+    <div class="grid-checks" formGroupName="sponsorPackages">
+        <label class="check-item">
+            <input type="checkbox" formControlName="platinum">
+            <span class="check-label">Platinum</span>
+        </label>
+        <label class="check-item">
+            <input type="checkbox" formControlName="gold">
+            <span class="check-label">Gold</span>
+        </label>
+        <label class="check-item">
+            <input type="checkbox" formControlName="silver">
+            <span class="check-label">Silver</span>
+        </label>
+    </div>
+
+    <div class="section-title">Branding Materials</div>
+    <div class="grid-checks" formGroupName="brandingMaterials">
+        <label class="check-item">
+            <input type="checkbox" formControlName="backdrops">
+            <span class="check-label">Backdrops</span>
+        </label>
+        <label class="check-item">
+            <input type="checkbox" formControlName="standees">
+            <span class="check-label">Standees</span>
+        </label>
+        <label class="check-item">
+            <input type="checkbox" formControlName="banners">
+            <span class="check-label">Banners</span>
+        </label>
+        <label class="check-item">
+            <input type="checkbox" formControlName="digitalScreens">
+            <span class="check-label">Digital Screens</span>
+        </label>
+    </div>
+
+    <div class="form-actions">
+        <button type="button" class="btn-secondary" (click)="prev.emit()">Back</button>
+        <button type="submit" class="btn-primary">Save & Continue</button>
+    </div>
+
+</form>

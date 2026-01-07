@@ -1,0 +1,58 @@
+<form [formGroup]="form" (ngSubmit)="onSubmit()" class="form-container">
+
+    <div class="form-row">
+        <div class="form-group">
+            <label for="roomCount">Number of Rooms Required</label>
+            <input type="number" id="roomCount" formControlName="roomCount">
+        </div>
+
+        <div class="form-group">
+            <label for="hotelPref">Hotel Preference</label>
+            <div class="select-wrapper">
+                <select id="hotelPref" formControlName="hotelPreference">
+                    <option value="Budget">Budget</option>
+                    <option value="3-Star">3-Star</option>
+                    <option value="5-Star">5-Star</option>
+                </select>
+            </div>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label>Room Types</label>
+        <div class="grid-checks" formGroupName="roomTypes">
+            <label class="check-item">
+                <input type="checkbox" formControlName="single">
+                <span class="check-label">Single</span>
+            </label>
+            <label class="check-item">
+                <input type="checkbox" formControlName="double">
+                <span class="check-label">Double</span>
+            </label>
+            <label class="check-item">
+                <input type="checkbox" formControlName="suite">
+                <span class="check-label">Suite</span>
+            </label>
+        </div>
+    </div>
+
+    <div class="form-row">
+        <div class="form-group">
+            <label for="vipAllotment">Room Allotment (Speakers/VIPs)</label>
+            <input type="number" id="vipAllotment" formControlName="speakerVipAllotment">
+        </div>
+
+        <div class="form-group" style="justify-content: flex-end;">
+            <label class="check-item">
+                <input type="checkbox" formControlName="airportTransfer">
+                <span class="check-label">Airport Transfer Needed</span>
+            </label>
+        </div>
+    </div>
+
+    <div class="form-actions">
+        <button type="button" class="btn-secondary" (click)="prev.emit()">Back</button>
+        <button type="submit" class="btn-primary">Save & Continue</button>
+    </div>
+
+</form>

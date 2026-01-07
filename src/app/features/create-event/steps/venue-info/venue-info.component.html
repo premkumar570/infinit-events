@@ -1,0 +1,91 @@
+<form [formGroup]="form" (ngSubmit)="onSubmit()" class="form-container">
+
+    <div class="form-row">
+        <div class="form-group">
+            <label for="venueType">Type of Venue Needed</label>
+            <div class="select-wrapper">
+                <select id="venueType" formControlName="type">
+                    <option value="Hotel">Hotel</option>
+                    <option value="Convention Center">Convention Center</option>
+                    <option value="Outbound">Outbound Venue</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="halls">Number of Halls / Rooms Required</label>
+            <input type="number" id="halls" formControlName="hallsRequired">
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label>Seating Style</label>
+        <div class="checkbox-group">
+            <button type="button" *ngFor="let style of seatingStyles" class="chip"
+                [class.active]="form.value.seatingStyle.includes(style)" (click)="toggleSeatingStyle(style)">
+                {{ style }}
+            </button>
+        </div>
+    </div>
+
+    <div class="section-title">Technical Requirements</div>
+    <div class="grid-checks" formGroupName="techRequirements">
+        <label class="check-item">
+            <input type="checkbox" formControlName="projectors">
+            <span class="check-label">Projectors</span>
+        </label>
+        <label class="check-item">
+            <input type="checkbox" formControlName="ledWall">
+            <span class="check-label">LED Wall</span>
+        </label>
+        <label class="check-item">
+            <input type="checkbox" formControlName="soundSystem">
+            <span class="check-label">Sound System</span>
+        </label>
+        <label class="check-item">
+            <input type="checkbox" formControlName="stageLighting">
+            <span class="check-label">Stage & Lighting</span>
+        </label>
+        <label class="check-item">
+            <input type="checkbox" formControlName="microphones">
+            <span class="check-label">Microphones (Wired/Wireless)</span>
+        </label>
+    </div>
+
+    <div class="form-row">
+        <div class="form-group">
+            <label class="check-item">
+                <input type="checkbox" formControlName="registrationDesk">
+                <span class="check-label">Registration Desk Setup</span>
+            </label>
+        </div>
+        <div class="form-group">
+            <label class="check-item">
+                <input type="checkbox" formControlName="vipArea">
+                <span class="check-label">VIP Area / Green Room</span>
+            </label>
+        </div>
+    </div>
+
+    <div class="section-title">Catering Requirements</div>
+    <div class="grid-checks" formGroupName="catering">
+        <label class="check-item">
+            <input type="checkbox" formControlName="teaCoffee">
+            <span class="check-label">Tea / Coffee</span>
+        </label>
+        <label class="check-item">
+            <input type="checkbox" formControlName="lunch">
+            <span class="check-label">Lunch</span>
+        </label>
+        <label class="check-item">
+            <input type="checkbox" formControlName="galaDinner">
+            <span class="check-label">Gala Dinner</span>
+        </label>
+    </div>
+
+    <div class="form-actions">
+        <button type="button" class="btn-secondary" (click)="prev.emit()">Back</button>
+        <button type="submit" class="btn-primary">Save & Continue</button>
+    </div>
+
+</form>

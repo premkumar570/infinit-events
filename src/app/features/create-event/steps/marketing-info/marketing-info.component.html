@@ -1,0 +1,35 @@
+<form [formGroup]="form" (ngSubmit)="onSubmit()" class="form-container">
+
+    <div class="grid-checks">
+        <label class="check-item">
+            <input type="checkbox" formControlName="website">
+            <span class="check-label">Event Website / Landing Page</span>
+        </label>
+        <label class="check-item">
+            <input type="checkbox" formControlName="socialMedia">
+            <span class="check-label">Social Media Promotion</span>
+        </label>
+        <label class="check-item">
+            <input type="checkbox" formControlName="emailCampaigns">
+            <span class="check-label">Email Campaigns</span>
+        </label>
+        <label class="check-item">
+            <input type="checkbox" formControlName="videoPromotion">
+            <span class="check-label">Video Promotion / Teasers</span>
+        </label>
+        <label class="check-item">
+            <input type="checkbox" formControlName="mediaCoverage">
+            <span class="check-label">Media Coverage (Print / Digital / TV)</span>
+        </label>
+        <label class="check-item">
+            <input type="checkbox" formControlName="pressRelease">
+            <span class="check-label">Press Release Management</span>
+        </label>
+    </div>
+
+    <div class="form-actions">
+        <button type="button" class="btn-secondary" (click)="prev.emit()">Back</button>
+        <button type="submit" class="btn-primary">Save & Continue</button>
+    </div>
+
+</form>

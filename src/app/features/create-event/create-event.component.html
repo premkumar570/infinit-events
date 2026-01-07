@@ -1,0 +1,81 @@
+<div class="wizard-container">
+    <!-- Sidebar Steps -->
+    <aside class="wizard-sidebar">
+        <div class="sidebar-header">
+            <h2>Create Event</h2>
+            <p>Follow the steps to setup your event</p>
+        </div>
+
+        <div class="steps-list">
+            <div *ngFor="let step of steps" class="step-item" [class.active]="step.id === currentStep()"
+                [class.completed]="currentStep() > step.id" (click)="goToStep(step.id)">
+                <div class="step-indicator">
+                    <span *ngIf="currentStep() <= step.id">{{ step.id }}</span>
+                    <span *ngIf="currentStep() > step.id">✓</span>
+                </div>
+                <div class="step-label">
+                    <span class="step-icon">{{ step.icon }}</span>
+                    {{ step.label }}
+                </div>
+            </div>
+        </div>
+    </aside>
+
+    <!-- Main Content Area -->
+    <main class="wizard-content">
+        <div class="content-wrapper">
+            <!-- Header -->
+            <header class="step-header" *ngIf="currentStep() <= 10">
+                <h1>{{ steps[currentStep() - 1].label }}</h1>
+                <p>Step {{ currentStep() }} of {{ steps.length }}</p>
+            </header>
+
+            <!-- Dynamic Step Content -->
+            <div class="step-body">
+                @switch (currentStep()) {
+                @case (1) {
+                <app-basic-info (next)="nextStep()"></app-basic-info>
+                }
+                @case (2) {
+                <app-venue-info (next)="nextStep()" (prev)="prevStep()"></app-venue-info>
+                }
+                @case (3) {
+                <app-accommodation-info (next)="nextStep()" (prev)="prevStep()"></app-accommodation-info>
+                }
+                @case (4) {
+                <app-program-info (next)="nextStep()" (prev)="prevStep()"></app-program-info>
+                }
+                @case (5) {
+                <app-registration-info (next)="nextStep()" (prev)="prevStep()"></app-registration-info>
+                }
+                @case (6) {
+                <app-exhibition-info (next)="nextStep()" (prev)="prevStep()"></app-exhibition-info>
+                }
+                @case (7) {
+                <app-marketing-info (next)="nextStep()" (prev)="prevStep()"></app-marketing-info>
+                }
+                @case (8) {
+                <app-logistics-info (next)="nextStep()" (prev)="prevStep()"></app-logistics-info>
+                }
+                @case (9) {
+                <app-financial-info (next)="nextStep()" (prev)="prevStep()"></app-financial-info>
+                }
+                @case (10) {
+                <app-post-event-info (finish)="finishSetup()" (prev)="prevStep()"></app-post-event-info>
+                }
+                @case (11) {
+                <div class="success-screen">
+                    <div class="success-icon">✨</div>
+                    <h1>Event Setup Complete!</h1>
+                    <p>Your event requirements have been successfully documented and saved.</p>
+                    <button class="btn-primary" (click)="goToStep(1)">Start New Plan</button>
+                </div>
+                }
+                @default {
+                <div class="placeholder-step">Step {{ currentStep() }} is under development.</div>
+                }
+                }
+            </div>
+        </div>
+    </main>
+</div>

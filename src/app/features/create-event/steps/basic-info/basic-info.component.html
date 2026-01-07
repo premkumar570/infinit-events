@@ -1,0 +1,55 @@
+<form [formGroup]="form" (ngSubmit)="onSubmit()" class="form-container">
+
+    <div class="form-group full-width">
+        <label for="title">Event Name / Title required</label>
+        <input type="text" id="title" formControlName="title" placeholder="e.g. Global Tech Summit 2024"
+            [class.error]="form.get('title')?.invalid && form.get('title')?.touched">
+        <div class="error-msg" *ngIf="form.get('title')?.invalid && form.get('title')?.touched">Event title is required
+        </div>
+    </div>
+
+    <div class="form-row">
+        <div class="form-group">
+            <label for="type">Event Type</label>
+            <div class="select-wrapper">
+                <select id="type" formControlName="type">
+                    <option *ngFor="let type of eventTypes" [value]="type">{{ type }}</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="city">Preferred City / Venue</label>
+            <input type="text" id="city" formControlName="city" placeholder="e.g. New York">
+        </div>
+    </div>
+
+    <div class="form-row">
+        <div class="form-group">
+            <label for="startDate">Start Date</label>
+            <input type="date" id="startDate" formControlName="startDate">
+        </div>
+
+        <div class="form-group">
+            <label for="endDate">End Date</label>
+            <input type="date" id="endDate" formControlName="endDate">
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label for="participants">Expected Number of Participants</label>
+        <input type="number" id="participants" formControlName="expectedParticipants" placeholder="0">
+    </div>
+
+    <div class="form-group full-width">
+        <label for="theme">Event Theme or Purpose</label>
+        <textarea id="theme" formControlName="theme" rows="4"
+            placeholder="Describe the main theme and objectives of the event..."></textarea>
+    </div>
+
+    <div class="form-actions">
+        <!-- No "Back" button on first step -->
+        <button type="submit" class="btn-primary">Save & Continue</button>
+    </div>
+
+</form>

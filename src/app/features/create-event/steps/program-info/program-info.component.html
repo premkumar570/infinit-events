@@ -1,0 +1,62 @@
+<form [formGroup]="form" (ngSubmit)="onSubmit()" class="form-container">
+
+    <div class="form-row">
+        <div class="form-group">
+            <label for="tracks">Number of Sessions / Tracks</label>
+            <input type="number" id="tracks" formControlName="sessionTracks">
+        </div>
+
+        <div class="form-group">
+            <label for="keynotes">Keynote Speakers (Comma separated)</label>
+            <input type="text" id="keynotes" formControlName="keynoteSpeakers" placeholder="e.g. John Doe, Jane Smith">
+        </div>
+    </div>
+
+    <div class="form-row">
+        <div class="form-group">
+            <label class="check-item">
+                <input type="checkbox" formControlName="speakerTravel">
+                <span class="check-label">Speaker Travel Arrangements</span>
+            </label>
+        </div>
+        <div class="form-group">
+            <label class="check-item">
+                <input type="checkbox" formControlName="speakerAccommodation">
+                <span class="check-label">Speaker Accommodation</span>
+            </label>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label for="chair">Session Chair / Panel Moderator Details</label>
+        <textarea id="chair" formControlName="sessionChairDetails" rows="2"
+            placeholder="List details or requirements for chairs..."></textarea>
+    </div>
+
+    <div class="form-row">
+        <div class="form-group">
+            <label class="check-item">
+                <input type="checkbox" formControlName="abstractHandling">
+                <span class="check-label">Abstract / Paper Submission Handling</span>
+            </label>
+        </div>
+        <div class="form-group">
+            <label class="check-item">
+                <input type="checkbox" formControlName="agendaCreated">
+                <span class="check-label">Agenda / Program Schedule Creation</span>
+            </label>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label for="av">AV Requirements for Each Session</label>
+        <textarea id="av" formControlName="avRequirements" rows="3"
+            placeholder="Specify AV requirements (e.g. Lapel mics, HDMI connectivity)..."></textarea>
+    </div>
+
+    <div class="form-actions">
+        <button type="button" class="btn-secondary" (click)="prev.emit()">Back</button>
+        <button type="submit" class="btn-primary">Save & Continue</button>
+    </div>
+
+</form>

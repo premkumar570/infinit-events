@@ -1,0 +1,45 @@
+<form [formGroup]="form" (ngSubmit)="onSubmit()" class="form-container">
+
+    <div class="form-row">
+        <div class="form-group">
+            <label for="staff">On-ground Staff Requirement</label>
+            <input type="number" id="staff" formControlName="onGroundStaff" placeholder="0">
+        </div>
+
+        <div class="form-group" style="justify-content: flex-end;">
+            <label class="check-item">
+                <input type="checkbox" formControlName="transport">
+                <span class="check-label">Transport for Delegates</span>
+            </label>
+        </div>
+    </div>
+
+    <div class="grid-checks">
+        <label class="check-item">
+            <input type="checkbox" formControlName="helpDesk">
+            <span class="check-label">Help Desk Support</span>
+        </label>
+        <label class="check-item">
+            <input type="checkbox" formControlName="security">
+            <span class="check-label">Security</span>
+        </label>
+        <label class="check-item">
+            <input type="checkbox" formControlName="medical">
+            <span class="check-label">Medical / First Aid</span>
+        </label>
+        <label class="check-item">
+            <input type="checkbox" formControlName="badgePrinting">
+            <span class="check-label">Badge Printing System</span>
+        </label>
+        <label class="check-item">
+            <input type="checkbox" formControlName="itSupport">
+            <span class="check-label">IT Support (Wi-Fi, networking)</span>
+        </label>
+    </div>
+
+    <div class="form-actions">
+        <button type="button" class="btn-secondary" (click)="prev.emit()">Back</button>
+        <button type="submit" class="btn-primary">Save & Continue</button>
+    </div>
+
+</form>

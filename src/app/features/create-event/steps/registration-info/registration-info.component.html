@@ -1,0 +1,76 @@
+<form [formGroup]="form" (ngSubmit)="onSubmit()" class="form-container">
+
+    <div class="form-row">
+        <div class="form-group">
+            <label class="check-item">
+                <input type="checkbox" formControlName="onlineRegistration">
+                <span class="check-label">Online Registration Required</span>
+            </label>
+        </div>
+        <div class="form-group">
+            <label class="check-item">
+                <input type="checkbox" formControlName="onsiteBooth">
+                <span class="check-label">On-site Registration Booth Setup</span>
+            </label>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label>Registration Types</label>
+        <div class="checkbox-group">
+            <button type="button" *ngFor="let role of roles" class="chip"
+                [class.active]="form.value.registrationTypes.includes(role)" (click)="toggleRole(role)">
+                {{ role }}
+            </button>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label class="check-item">
+            <input type="checkbox" formControlName="paymentGateway">
+            <span class="check-label">Payment Gateway Setup</span>
+        </label>
+    </div>
+
+    <div class="section-title">Delegate Kit Requirements</div>
+    <div class="grid-checks" formGroupName="delegateKit">
+        <label class="check-item">
+            <input type="checkbox" formControlName="bags">
+            <span class="check-label">Bags</span>
+        </label>
+        <label class="check-item">
+            <input type="checkbox" formControlName="badges">
+            <span class="check-label">Badges</span>
+        </label>
+        <label class="check-item">
+            <input type="checkbox" formControlName="lanyards">
+            <span class="check-label">Lanyards</span>
+        </label>
+        <label class="check-item">
+            <input type="checkbox" formControlName="certificates">
+            <span class="check-label">Certificates</span>
+        </label>
+    </div>
+
+    <div class="section-title">Ticket Types</div>
+    <div class="grid-checks" formGroupName="ticketTypes">
+        <label class="check-item">
+            <input type="checkbox" formControlName="free">
+            <span class="check-label">Free</span>
+        </label>
+        <label class="check-item">
+            <input type="checkbox" formControlName="paid">
+            <span class="check-label">Paid</span>
+        </label>
+        <label class="check-item">
+            <input type="checkbox" formControlName="tiered">
+            <span class="check-label">Tiered Pricing</span>
+        </label>
+    </div>
+
+    <div class="form-actions">
+        <button type="button" class="btn-secondary" (click)="prev.emit()">Back</button>
+        <button type="submit" class="btn-primary">Save & Continue</button>
+    </div>
+
+</form>

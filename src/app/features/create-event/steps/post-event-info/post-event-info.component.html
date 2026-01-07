@@ -1,0 +1,35 @@
+<form [formGroup]="form" (ngSubmit)="onSubmit()" class="form-container">
+
+    <div class="grid-checks">
+        <label class="check-item">
+            <input type="checkbox" formControlName="feedbackForms">
+            <span class="check-label">Feedback Forms</span>
+        </label>
+        <label class="check-item">
+            <input type="checkbox" formControlName="certificateDistribution">
+            <span class="check-label">Certificate Distribution</span>
+        </label>
+        <label class="check-item">
+            <input type="checkbox" formControlName="thankYouEmails">
+            <span class="check-label">Thank-you Emails</span>
+        </label>
+        <label class="check-item">
+            <input type="checkbox" formControlName="photoVideoEditing">
+            <span class="check-label">Photo & Video Editing</span>
+        </label>
+        <label class="check-item">
+            <input type="checkbox" formControlName="postEventReport">
+            <span class="check-label">Post-event Report</span>
+        </label>
+        <label class="check-item">
+            <input type="checkbox" formControlName="roiAnalysis">
+            <span class="check-label">ROI Analysis for Sponsors</span>
+        </label>
+    </div>
+
+    <div class="form-actions">
+        <button type="button" class="btn-secondary" (click)="prev.emit()">Back</button>
+        <button type="submit" class="btn-primary">Complete Setup</button>
+    </div>
+
+</form>
